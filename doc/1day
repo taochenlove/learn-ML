@@ -1,0 +1,35 @@
+
+1、安装python3 pandas库
+pip3  install pandas
+pip3  install sklearn
+缺少什么依赖就安装什么
+
+2、导入库用户分析数据
+import numpy
+import pandas
+
+3、导入数据集
+dataset = pandas.read_csv('./datasets/data.csv')
+X = dataset.iloc[:, :-1].values
+Y = dataset.iloc[:, 3].values
+
+iloc中取出数据集值，[行,列]
+X 表示取所有行以及除去倒数第一列
+Y 表示取所有行第3列（从0开始编号）
+
+4、处理丢失数据
+Imputer类
+   missing_values = "Nan" ---- 丢失数据填充值
+   strategy = "mean" -----使用平均数策略
+   axis 用来计算mean 和 standard deviations 时，如果是0，则单独的标准化每个特征列，如果是1，则标准化每个特征行
+
+5、解析分类数据
+X[:, 0] = lableencoder_X.fit_transform(X[:, 0])
+    fit_transform与transform区别 
+
+onehotencoder = OneHotEncoder(categorical_features = [0])
+X = onehotencoder.fit_transform(X).toarry()
+
+关于Onehotencoder扩维：
+    one hot encoding它扩维以后的值只有0和1， 从图中可以看到扩维以后，[1.0, 0.0, 0.0]是对[1]进行编码， [0.0, 0,0, 1.0]是对[3]进行编码 
+
