@@ -1,7 +1,7 @@
 
-1、安装python3 pandas库
-pip3  install pandas
-pip3  install sklearn
+1、安装python pandas库
+sudo pip  install pandas
+sudo pip  install sklearn
 缺少什么依赖就安装什么
 
 2、导入库用户分析数据
@@ -10,8 +10,8 @@ import pandas
 
 3、导入数据集
 dataset = pandas.read_csv('./datasets/data.csv')
-X = dataset.iloc[:, :-1].values
-Y = dataset.iloc[:, 3].values
+X = dataset.iloc[:, :-1].values #所有行，第1列到倒数第二列 
+Y = dataset.iloc[:, 3].values #所有行，第3列 
 
 iloc中取出数据集值，[行,列]
 X 表示取所有行以及除去倒数第一列
